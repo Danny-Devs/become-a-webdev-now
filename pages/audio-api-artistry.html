@@ -4,13 +4,49 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Web Audio API Artistry</title>
+  <style>
+    .square {
+      background-color: rgb(10, 177, 10);
+      border: 1px solid black;
+      width: 1em;
+      height: 1em;
+    }
+    .container {
+      display: grid;
+      outline: 2px solid red;
+      grid-template-columns: repeat(20, 1fr);
+      grid-template-rows: repeat(12, 1fr);
+      grid-row-gap: 0.15em; /* 1em = 16px */
+      grid-column-gap: 0.625em;
+      justify-items: center;
+      align-items: center;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5em;
+    }
+  </style>
 </head>
 <body>
   <audio id="c-major" src="../assets/17569__danglada__c-major.wav"></audio>
   <audio id="f-major" src="../assets/17572__danglada__f-major.wav"></audio>
   <audio id="g-major" src="../assets/17573__danglada__g-major.wav"></audio>
 
-  <button id="play-btn" data-playing="false" role="switch" aria-checked="false">Play</button>
+  <header>
+    <div>
+      <button id="play-btn" data-playing="false" role="switch" aria-checked="false">Play</button>
+      <button id="tone-btn">Play Tone</button>
+    </div>
+    <div>
+      <label for="volume">Volume:</label>
+      <input type="range" id="volume" name="volume" min="0" max="100" value="50">
+    </div>
+  </header>
+  
+  <!-- 5 x 10 grid -->
+  <div class="container">
+  </div>
 
   <script type="module" src="../src/js/webAudioAPI.js"></script>
 </body>
